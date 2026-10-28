@@ -307,6 +307,8 @@ public class Launcher extends Activity {
                 new String[] {"30 fps", "60 fps (experimental)"}, new String[] {"30 fps", "60 fps (experimental)"}, 0));
         options.add(new Option("NX_SHADOWS", "Sombras", "Shadows", new String[] {"0", "1"},
                 new String[] {"Desactivadas", "Activadas"}, new String[] {"Off", "On"}, 0));
+        options.add(new Option("NX_BUFFER_CACHE", "Caché de búferes", "Buffer cache", new String[] {"1", "0"},
+                new String[] {"Activada", "Desactivada"}, new String[] {"On", "Off"}, 0));
         options.add(new Option("NX_SHOW_FPS", "Contador de FPS", "FPS counter", new String[] {"0", "1"},
                 new String[] {"Desactivado", "Activado"}, new String[] {"Off", "On"}, 0));
         options.add(new Option("NX_TOUCH_SHOW", "Controles táctiles", "On-screen controls", new String[] {"1", "0"},

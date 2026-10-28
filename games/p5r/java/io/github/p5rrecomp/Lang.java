@@ -81,6 +81,7 @@ final class Lang {
         put("Off", "Désactivé", "Aus", "Disattivato", "Desativado", "オフ", "끔", "关", "關");
         put("Fullscreen (stretch)", "Plein écran (étirer)", "Vollbild (strecken)", "Schermo intero (allarga)", "Tela cheia (esticar)", "\u5168\u753b\u9762\uff08\u5f15\u304d\u4f38\u3070\u3057\uff09", "\uc804\uccb4 \ud654\uba74 (\ub298\uc774\uae30)", "\u5168\u5c4f\uff08\u62c9\u4f38\uff09", "\u5168\u87a2\u5e55\uff08\u62c9\u4f38\uff09");
         put("On", "Activé", "An", "Attivato", "Ativado", "オン", "켬", "开", "開");
+        put("Buffer cache", "Cache de tampon", "Puffercache", "Cache buffer", "Cache de buffer", "バッファキャッシュ", "버퍼 캐시", "缓冲区缓存", "緩衝區快取");
         put("FPS counter", "Compteur de FPS", "FPS-Anzeige", "Contatore FPS", "Contador de FPS", "FPS表示", "FPS 표시",
                 "帧率显示", "FPS 顯示");
         put("On-screen controls", "Commandes tactiles", "Touch-Steuerung", "Comandi touch", "Controles na tela",

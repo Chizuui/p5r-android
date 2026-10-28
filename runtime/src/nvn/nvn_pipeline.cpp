@@ -412,7 +412,7 @@ Pool& pool() {
         auto* pl = new Pool;
         const char* e = std::getenv("NX_PIPE_THREADS");
         unsigned hw = std::thread::hardware_concurrency();
-        unsigned n = e ? unsigned(std::atoi(e)) : std::min(2u, hw > 1 ? hw - 1 : 1u);
+        unsigned n = e ? unsigned(std::atoi(e)) : (hw >= 8 ? 3u : std::min(2u, hw > 1 ? hw - 1 : 1u));
         pl->threads = std::min(n, 8u);
         for (unsigned i = 0; i < pl->threads; i++)
             std::thread([pl] {
@@ -641,8 +641,8 @@ void pipeline_warm_step() {
     }
     if (!remaining) return;
     const uint64_t t0 = plat::monotonic_ns();
-    constexpr uint64_t kBudgetNs = 1000000;  // replay-thread time per submit spent preparing builds
-    for (size_t scanned = 0; scanned < std::min<size_t>(recs.size(), 64) && g_prewarm_inflight < 32; scanned++) {  // 64 lookups per submit: the shaders of other courses never load
+    constexpr uint64_t kBudgetNs = 2000000;  // replay-thread time per submit spent preparing builds (2 ms)
+    for (size_t scanned = 0; scanned < std::min<size_t>(recs.size(), 128) && g_prewarm_inflight < 64; scanned++) {
         if (plat::monotonic_ns() - t0 > kBudgetNs) break;
         size_t i = cursor++ % recs.size();
         if (done[i]) continue;
