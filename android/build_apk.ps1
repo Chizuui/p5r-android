@@ -86,7 +86,7 @@ foreach ($so in Get-ChildItem "$out\lib\arm64-v8a" -Filter *.so) {
 # Java of the game's own (games\<game>\java, e.g. Wonder's home screen): javac against android.jar, d8 to classes.dex.
 $java = "$root\games\$Game\java"
 if (Test-Path $java) {
-    $jdk = (Get-ChildItem "C:\Program Files\Microsoft\jdk-*", "C:\Program Files\Java\jdk-*" -Directory -ErrorAction SilentlyContinue |
+    $jdk = (Get-ChildItem "C:\Program Files\Microsoft\jdk-*", "C:\Program Files\Java\jdk-*", "C:\Program Files\Eclipse Adoptium\jdk-*" -Directory -ErrorAction SilentlyContinue |
         Sort-Object Name | Select-Object -Last 1).FullName
     # else Android Studio's own runtime, which is a full JDK (javac included)
     if (-not $jdk -and $env:JAVA_HOME -and (Test-Path (Join-Path $env:JAVA_HOME "bin\javac.exe"))) { $jdk = $env:JAVA_HOME }
