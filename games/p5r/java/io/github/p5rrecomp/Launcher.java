@@ -291,9 +291,9 @@ public class Launcher extends Activity {
                 new String[] {"Automatic (device language)", "English", "Español", "Français", "Deutsch", "Italiano",
                         "日本語", "한국어", "简体中文", "繁體中文"}, 0));
         options.add(new Option("RESOLUTION", "Resolución", "Resolution",
-                new String[] {"360p", "480p", "720p", "1080p"},
-                new String[] {"360p", "480p", "720p", "1080p"},
-                new String[] {"360p", "480p", "720p", "1080p"}, 2));
+                new String[] {"360p", "480p", "540p", "720p", "1080p"},
+                new String[] {"360p", "480p", "540p", "720p", "1080p"},
+                new String[] {"360p", "480p", "540p", "720p", "1080p"}, 3));
         options.add(new Option("NX_STRETCH", "Pantalla completa (estirar)", "Fullscreen (stretch)",
                 new String[] {"0", "1"},
                 new String[] {"Desactivada", "Activada"},
@@ -517,6 +517,7 @@ public class Launcher extends Activity {
                     String r = config.get("resolution");
                     if (r != null && r.contains("360")) v = "360p";
                     else if (r != null && r.contains("480")) v = "480p";
+                    else if (r != null && r.contains("540")) v = "540p";
                     else v = "720p";
                 }
             }
@@ -715,6 +716,11 @@ public class Launcher extends Activity {
             config.put("resolution", "854x480");
             config.put("NX_RENDER_RES", "854x480");
             config.put("NX_RES", "480p");
+        } else if ("540p".equals(res)) {
+            config.put("NX_HANDHELD", "1");
+            config.put("resolution", "960x540");
+            config.put("NX_RENDER_RES", "960x540");
+            config.put("NX_RES", "540p");
         } else if ("1080p".equals(res)) {
             config.put("NX_HANDHELD", "0");
             config.put("resolution", "1920x1080");

@@ -331,6 +331,7 @@ void window_size(uint32_t& w, uint32_t& h) {
     uint32_t target_h = 0;
     if (r == "360p" || r == "360") target_h = 360;
     else if (r == "480p" || r == "480") target_h = 480;
+    else if (r == "540p" || r == "540") target_h = 540;
     else if (r == "720p" || r == "720") target_h = 720;
     else if (r == "1080p" || r == "1080") target_h = 1080;
 
